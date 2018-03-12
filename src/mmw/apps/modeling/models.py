@@ -43,6 +43,14 @@ class Project(models.Model):
         null=True,
         help_text='Serialized JSON representation of additional'
                   ' data gathering steps, such as MapShed.')
+    mapshed_job_uuid = models.UUIDField(
+        null=True,
+        help_text='The job used to calculate the MapShed results.'
+                  ' Used for getting the results of that job.')
+    subbasin_mapshed_job_uuid = models.UUIDField(
+        null=True,
+        help_text='The job used to calculate the mapshed results'
+                  ' for each HUC-12 sub-basin of the shape.')
     wkaoi = models.CharField(
         null=True,
         max_length=255,
