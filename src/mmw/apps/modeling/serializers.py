@@ -84,6 +84,9 @@ class ProjectSerializer(gis_serializers.GeoModelSerializer):
 
     user = UserSerializer(default=serializers.CurrentUserDefault())
     gis_data = JsonField(required=False, allow_null=True)
+    mapshed_job_uuid = serializers.UUIDField(required=False, allow_null=True)
+    subbasin_mapshed_job_uuid = serializers.UUIDField(required=False,
+                                                      allow_null=True)
     scenarios = ScenarioSerializer(many=True, read_only=True)
     hydroshare = HydroShareResourceSerializer(read_only=True)
 
@@ -109,6 +112,9 @@ class ProjectUpdateSerializer(gis_serializers.GeoModelSerializer):
     user = UserSerializer(default=serializers.CurrentUserDefault(),
                           read_only=True)
     gis_data = JsonField(required=False, allow_null=True)
+    mapshed_job_uuid = serializers.UUIDField(required=False, allow_null=True)
+    subbasin_mapshed_job_uuid = serializers.UUIDField(required=False,
+                                                      allow_null=True)
 
 
 class AoiSerializer(serializers.BaseSerializer):
